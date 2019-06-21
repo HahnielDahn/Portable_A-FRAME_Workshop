@@ -1,0 +1,128 @@
+
+<h2>Schritt für Schritt Anleitung für den Ententeich</h2>
+<p>
+
+In dieser Anleitungsreihe werden wir versuchen den Ententeich aus dem <a href="../freiesArbeiten/beispiel_ententeich">beispiel_ententeich.ejs</a> nachzubauen.<br>
+Dafür verwenden wir die Datei <a href="../freiesArbeiten/ententeich_nachbauen">ententeich_nachbauen.ejs</a>.<br>
+Beide Dateien befinden sich in dem Verzeichnis <em>views/ freiesArbeiten</em>.
+
+</p>
+<h2>Zuerst das Gras</h2>
+<p>
+
+Wenn du dem <a href="../freiesArbeiten/ententeich_nachbauen">Link</a> zur Datei gefolgt bist, wirst du nur weiß gesehen haben.
+Zunächst sollten wir einen Boden schaffen.
+Allerdings benötigen wir ein Loch in der Mitte (es sei denn du möchtest lieber eine Küste haben, an der die Ente entlang schwimmt).
+Wir können mit vier &lt;a-plane&gt; eine Fläche einschließen.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-plane position="-4 -1 0" width="4" height="12" rotation="-90 0 0" color="#00AA00"&gt; &lt;/a-plane&gt;<br>
+  &lt;a-plane position="0 -1 4" width="4" height="4" rotation="-90 0 0" color="#00AA00"&gt; &lt;/a-plane&gt;<br>
+  &lt;a-plane position="0 -1 -4" width="4" height="4" rotation="-90 0 0" color="#00AA00"&gt; &lt;/a-plane&gt;<br>
+  &lt;a-plane position="4 -1 0" width="4" height="12" rotation="-90 0 0" color="#00AA00"&gt; &lt;/a-plane&gt;
+</div>
+
+<div class="hinweis">Hinweis: Wenn du den Code, wie oben beschrieben, in die Datei einfügst, ist der Teich direkt unter dir.
+  Gruppiere das Gras, indem du es in eine &lt;a-entity&gt; verschachtelst.
+  Wenn du jetzt die Position der &lt;a-entity&gt; veränderst, verschiebst du die darunterliegenden Objekte gleich mit.
+  Die &lt;a-entity&gt; selbst hat keine sichtbare Repräsentation und wird daher nicht gezeichnet, wenn du die Datei im Browser anzeigst.
+  <div style="border-style: solid;border-width: 1px;">
+    &lt;a-entity position="0 0 -6"&gt;<br>
+    &nbsp;&nbsp; &lt;a-plane position="-4 -1 0" width="4" height="12" rotation="-90 0 0" color="#00AA00"&gt; &lt;/a-plane&gt;<br>
+    &nbsp;&nbsp; &lt;a-plane position="0 -1 4" width="4" height="4" rotation="-90 0 0" color="#00AA00"&gt; &lt;/a-plane&gt;<br>
+    &nbsp;&nbsp; &lt;a-plane position="0 -1 -4" width="4" height="4" rotation="-90 0 0" color="#00AA00"&gt; &lt;/a-plane&gt;<br>
+    &nbsp;&nbsp; &lt;a-plane position="4 -1 0" width="4" height="12" rotation="-90 0 0" color="#00AA00"&gt; &lt;/a-plane&gt;<br>
+    &lt;/a-entity&gt;
+  </div>
+</div>
+
+</p><p>
+
+Ein eckiger Teich ist komisch.
+Wenn es doch nur eine passende geometrische Form gäbe, die ein kreisförmige Aussparung in der Mitte hat!
+Im <a href="../freiesArbeiten/beispiel_ententeich">beispiel_ententeich.ejs</a> ging es doch auch, gleich mal in die Quellcode schauen ...
+<br>
+Aha, es gibt also einen &lt;a-ring&gt;.
+Der &lt;a-ring&gt; hat einen <em>radius-outer</em> (eng. für "äußerer Radius"), welche die Gesamtfläche festlegt,
+ und einen <em>radius-inner</em> (eng. für "innerer Radius"), also der Radius, der die Aussparung festlegt.
+Wie bei der &gt;a-plane&lt; wird der Kreis erstmal senkrecht im Raum gezeichnet, daher müssen wir ihn wieder erst um -90 Grad über die x-Achse drehen damit er flach liegt.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-ring position="0 -1 -6" radius-inner="3" radius-outer="10" rotation="-90 0 0"  color="#00AA00"&gt; &lt;/a-ring&gt;
+</div>
+
+<div class="hinweis">Hinweis: Wenn du dir den Ring genau ansiehst, wirst du feststellen,
+ dass er nicht perfekt rund ist, sondern aus ganz vielen Segmenten besteht, die anhand von Ecken zu erkennen sind.
+ Wie eckig der Ring ist, kannst du über das Attribut <em>segments-theta</em> einstellen.
+ Den viereckigen Teich wie oben könntest du also auch über die folgende Definition erreichen:
+  <div style="border-style: solid;border-width: 1px;">
+    &lt;a-ring position="0 -1 -6" radius-inner="3" radius-outer="10" rotation="-90 0 0"  color="#00AA00"
+    <span style="color=#0000ff">segments-theta="4"</span>&gt; &lt;/a-ring&gt;
+  </div>
+</div>
+
+</p>
+<h2>Dann das Wasser</h2>
+<p>
+
+Das Wasser funktioniert nach dem gleichen Schema.
+Zunächst suchen wir uns einen Tag aus, der eine Fläche darstellt.
+Die übliche Verdächtige ist die &lt;a-plane&gt;. Wenn wir die Ebene ausreichen groß machen, deckt sie die ganze Lücke unseres Teichs ab.
+Wenn wir uns für einen runden Teich entschieden haben, können wir auch eine Kreisfläche nehmen.
+Dafür gibt es direkt den &lt;a-circle&gt; (eng. für "Kreis"), oder aber wir können den &lt;a-ring&gt; wiederverwenden, mit einem <em>radius-inner="0"</em>.
+Wie wir uns entscheiden, die Fläche muss ausreichend groß sein, einen Blauton haben und wie alle Flächen um -90 Grad über die x-Achse gekippt werden.
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-plane position="0 -1.01 -6" width="4.5" height="4.5" rotation="-90 0 0" color="#0000aa"&gt; &lt;/a-plane&gt;<br>
+  &lt;a-ring position="0 -1.01 -6" radius="3.5" rotation="-90 0 0" color="#0000aa"&gt; &lt;/a-ring&gt;<br>
+  &lt;a-circle position="0 -1.01 -4" radius-inner="0" radius-outer="3.5" rotation="-90 0 0" color="#0000aa"&gt; &lt;/a-circle&gt;
+</div>
+
+<div class="hinweis">Hinweis: Der Wasserspiegel ist leicht unter dem Grasboden gesetzt, um Überlagerungseffekten vorzubeugen.
+  Auch ist die Fläche leicht größer als die Lücke gewählt, um einen weißen Rand vorzubeugen.
+  Probier verschiedene Werte aus und entscheide dich für das, was dir am Besten gefällt.
+</div>
+
+</p>
+<h2>Schließlich die Ente</h2>
+<p>
+
+Wir könnten versuchen, die Ente aus geometrischen Primitiven zusammen zu setzten.
+Man könnte zum Beispiel eine &lt;a-sphere&gt; (Kugel) für den Körper nehmen und über das Attribut <em>scale</em> etwas platt drücken und länglich machen.
+Auch für den Kopf könnte man eine &lt;a-sphere&gt; verwenden und dazu eine &lt;a-box&gt; als Schnabel.<br>
+Was wir hier machen werden, ist ein fertiges 3D-Modell einer Ente einzubinden.
+Es handelt sich dabei um eine speziell aufbereitete Form eines 3D-Modells welches sich <em>glTF</em> nennt.
+Oder ausgeschrieben <em>Graphics Library Transmission Format</em> (eng. für "Grafik-Bibliothek Übertragungs Format"), also ein speziell für den Transport
+ über das Netzwerk konzipiertes Format.
+Die Ente-Datei befindet sich im Ordner <em> public/gltf/Duck/glTF/</em> und besteht tatsächlich aus drei Dateien (duck.gltf, duck0.bin, duckCM.png).
+A-Frame hat ein Tag, mit dem man sehr einfach eine <em>glTF</em> Datei einbinden kann.
+Sie hat den vielsagenden Namen &lt;a-gltf-model&gt;:
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-gltf-model position="0 0 -6" src="../gltf/Duck/glTF/duck.gltf"&gt; &lt;/a-gltf-model&gt;
+</div>
+
+<div class="hinweis">Hinweis: Die Ente auf die Wasseroberfläche zu setzten, überlasse ich dir.
+  Du kannst sie auch über <em>scale</em> etwas kleiner oder nach Belieben größer machen.
+</div>
+<div class="hinweis">Hinweis: <em>"Im <a href="../freiesArbeiten/beispiel_ententeich">beispiel_ententeich.ejs</a> wurde die Ente zweimal um -90 Grad gekippt.
+  Warum müssen wir das nicht machen?"</em><br>
+  Wunderbar beobachtet.
+  Im <a href="../freiesArbeiten/beispiel_ententeich">beispiel_ententeich.ejs</a> ist die Ente in die Wasseroberfläche (&lt;a-plane&gt;) verschachtelt und erbt dadurch
+  die <em>rotation</em> von -90 Grad über die x-Achse.
+  Probier doch ein paar andere <em>rotations</em> für die Ente aus dem <a href="../freiesArbeiten/beispiel_ententeich">beispiel_ententeich.ejs</a> aus.
+  Die geerbte <em>rotation</em> hätte man z.B. auch mit der <em>rotation="90 0 0"</em> wieder aufheben können. sSchau dir doch mal an, was dann passiert.
+</div>
+<div class="hinweis">Hinweis: <em>"Wie funktioniert das src-Attribut?"</em><br>
+  <em>src</em> ist die Kurzform von <em>source</em> (eng. für "Quelle" oder "Ursprung").
+  Wir sagen also dem &lt;a-gltf-model&gt;, dass seine ursprüngliche Form die der <em>duck.gltf</em> ist.
+  Die zwei Punkte bedeuten "eine Ebene höher" und erklären sich wie folgt.
+  Beim Abrufen der Datei versucht der Client, die duck.gltf im relativen Pfad zur aktuellen Webseite abzurufen. 
+  D.h. ohne zwei Punkte würde er von <em>http://localhost:3000/<span style="color:#aa0000">freiesArbeiten/</span><span style="color:#0000ff">ententeich_nachbauen</span></em>
+    aus versuchen auf <em>http://localhost:3000/<span style="color:#aa0000">freiesArbeiten/</span><span style="color:#0000ff">gltf/Duck/glTF/duck.gltf</span></em> zuzugreifen.
+  Der Server hält die <em>duck.gltf</em> aber unter <em>http://localhost:3000/<span style="color:#0000ff">gltf/Duck/glTF/duck.gltf</span></em> bereit, daher benötigen wir die zwei Punkte um aus der <span style="color:#aa0000">freiesArbeiten</span>-Ebene herauszukommen.
+</div>

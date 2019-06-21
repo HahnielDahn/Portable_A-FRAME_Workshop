@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Girl's Day Academy - Übersicht</title>
+    <meta charset="utf-8">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  <h1>Übersicht</h1>
+  <p>
+	Auf dieser Seite sind alle Aufgaben verlinkt. Du kannst sie der Reihe nach durchgehen, einzelne Aufgaben überspringen oder direkt mit denen loslegen, die deinem Interesse oder Wissensstand entsprechen.<br>
+	Falls dieser Tab aus Versehen geschlossen wurde, kannst du diese Seite erneut aufrufen, indem du in die Adresszeile des Browsers "localhost:3000/anleitung" eingibst.<br>
+  </p>
+	<h3>Einführung in die verwendeten Werkzeuge</h3>
+		<% include includes/aTabelle0.ejs %>
+		<% include includes/aTabelle1.ejs %>
+		<% include includes/aTabelle2.ejs %>
+    
+	<h3>Einführung in A-Frame</h3>
+  
+		<% include includes/aTabelle3.ejs %>
+		<% include includes/aTabelle4.ejs %>
+		<% include includes/aTabelle5.ejs %>
+    
+  <h3>Übungs-Puzzles</h3>
+  <p>
+    Versuche bei diesen Puzzles den Sollzustand zu erreichen.<br>
+    Die Puzzledateien sind auf das Nötigste reduziert. Alles was du siehst, wird automatisch in eine &lt;a-scene&gt; verpackt.<br>
+    Du kannst jederzeit ein Puzzle überspringen oder mit der Lösung vergleichen und dir ansehen, wie ich es gelöst habe.
+  </p><p>
+    <div>
+      <a href="../Puzzle/positionPuzzle?nummer=1">Positionpuzzles - Kleine Rätsel zum Üben wie man Objekte im Raum platziert</a>
+    </div><div>
+      <a href="../Puzzle/skalierPuzzle?nummer=1">Skalierpuzzles - Kleine Rätsel zum Üben wie man Objekte streckt und staucht</a>
+    </div><div>
+      <a href="../Puzzle/rotierPuzzle?nummer=1">Rotierpuzzles - Kleine Rätsel zum Üben wie man Objekte kippt und ausrichtet</a>
+    </div><div>
+      <a href="../Puzzle/colorierPuzzle?nummer=1">Colorierpuzzles - Kleine Rätsel zum Üben wie man Objekte einfärbt und Farben mischt</a>
+    </div><div>
+      <a href="../Puzzle/animierPuzzle?nummer=1">Animierpuzzles - Kleine Rätsel zum Üben wie man Objekte im Raum bewegen lässt</a>
+    </div>
+  </p><p>
+    Die bisherigen Puzzles hatten als Ziel dir schrittweise die Konzepte näher zu bringen.
+    Die Herausforderungspuzzles hingegen haben als Ziel dich zu fordern.
+    Zum Teil musst du Kniffe anwenden, die bisher nicht vorgestellt wurden.
+    Wenn du also mal festhängst öffne einfach die Datei der Vorgabe (siehe den Text im Puzzle)
+     oder bitte einen Betreuer um einen Tipp.
+  </p><p>
+    <div>
+      <a href="../Puzzle/herausforderungsPuzzle?nummer=1">Herausforderungspuzzles - Du wirst alles brauchen was du bisher gelernt und noch nicht gelernt hast um alle Puzzles nachzubilden</a>
+    </div>
+  </p>
+  <h3>Den Ententeich nachbauen</h3>
+		<% include includes/aTabelle6.ejs %>
+		<% include includes/aTabelle7.ejs %>
+		<% include includes/aTabelle8.ejs %>
+	<h3>Freies Arbeiten</h3>
+		<% include includes/aTabelle9.ejs %>
+  <h2>Weitere Informationen</h2>
+  <a href="https://www.tao-oberfranken.de/lehre-schuelerforschungszentrum/schuelerforschungszentrum/informationen-fuer-schueler/">TAO-Schüler-Forschungs-Zentrum Oberbayern</a> (extern)<br>
+  <a href="https://aframe.io/docs/master/introduction/">Vollständige Dokumentation über A-Frame</a> (extern, Englisch)
+  </body>
+</html>

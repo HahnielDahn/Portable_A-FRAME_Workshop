@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to GDA-Workshop with A-Frame</title>
+    <% include ../includes/aFrame_Engine.ejs %>
+  </head>
+  <body>
+    <a-scene raycaster="far: 100; objects: [link];" cursor="rayOrigin: mouse" camera-position>
+	  <a-assets>
+		<img id="homeThumbnail" src="../images/beispiel-gltf.png">
+	  </a-assets>
+	  <!-- Texts -->
+	  <a-entity id="size" position="0 2 -1"
+        animation="property: scale; to: 2 2 2; dir: alternate; loop: true"
+        text="color: gold; align: center; value: Willkommen zum A-Frame Workshop!; width: 1.5">
+	  </a-entity>
+	  <a-entity position="0 1.5 -1" geometry="primitive: plane; width: auto; height: auto"
+	    material="color: #FFF" text="color: gold; align: center;
+		  value: Benutze WASD um zu laufen.
+		  Halte die linke Maustaste gedrueckt und bewege dabei die Maus um dich umzusehen.
+		  Beginne den Workshop indem du ein Portal anklickst; width: 2; ">
+	  </a-entity>
+      <!-- actual Scene -->
+	  <a-circle position="0 0 0" rotation="-90 0 0" radius="4" color="#FFF"></a-circle>
+	  
+      <a-circle position="0 0 -8" rotation="-90 0 0" radius="2" color="#FFF"></a-circle>
+	  
+	  <!-- Exits -->
+	  <a-link href="../aframe/beispiel-gltf" title="Zum Rundgang" image="#homeThumbnail" position="0 2 -8"></a-link>
+	  <a-link href="../anleitung" title="Rundgang beenden" position="0 2 5"></a-link>
+      <a-sky color="#333"></a-sky>
+    </a-scene>
+  </body>
+</html>

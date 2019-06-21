@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../includes/aFrame_Engine.ejs %>
+    <title>Beispiel-Projekt von A-Frame School mit floating Comments</title>
+  </head>
+  <body>
+    <a-scene raycaster="far: 100; objects: [link];" cursor="rayOrigin: mouse" camera-position>
+	  <a-assets>
+		<img id="aframe" src="../images/aframe360.png">
+		<img id="ballgame" src="../images/ballgame.png">
+	  </a-assets>
+	  <!-- Box und Comment -->
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" material="color: #333"
+	    text='color: white; align: left; 
+		  value: <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>;
+		  width: 1.5' position="-1 2 -3"></a-entity>
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" rotation="0 180 0" material="color: #333"
+	    text='color: white; align: left; 
+		  value: <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>;
+		  width: 1.5' position="-1 2 -3"></a-entity>
+	  <a-box id="box" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-cylinder position="-1 1.25 -3" radius="0.01" height="1.35" color="#F00"></a-cylinder>
+	  
+	  <!-- Kugel und Comment -->
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" material="color: #333"
+	    text='color: white; align: left; 
+		  value: <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>;
+		  width: 1.5' position="0 2.5 -3"></a-entity>
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" rotation="0 180 0" material="color: #333"
+	    text='color: white; align: left; 
+		  value: <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>;
+		  width: 1.5' position="0 2.5 -3"></a-entity>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="0 1.35 -4.05" rotation="45 0 0" radius="0.01" height="3" color="#F00"></a-cylinder>
+	  
+	  <!-- Zylinder und Comment -->
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" material="color: #333"
+	    text='color: white; align: left; 
+		  value: <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>;
+		  width: 1.5' position="1 2 -3"></a-entity>
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" rotation="0 180 0" material="color: #333"
+	    text='color: white; align: left; 
+		  value: <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>;
+		  width: 1.5' position="1 2 -3"></a-entity>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-cylinder position="1 1.25 -3" radius="0.01" height="1.35" color="#F00"></a-cylinder>
+	  
+	  <!-- Ebene und Comment -->
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" material="color: #333"
+	    text='color: white; align: left; 
+		  value: <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>;
+		  width: 1.5' position="0 1 -2.5"></a-entity>
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" rotation="0 180 0" material="color: #333"
+	    text='color: white; align: left; 
+		  value: <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>;
+		  width: 1.5' position="0 1 -2.5"></a-entity>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-cylinder position="0 0.47 -2.5" radius="0.01" height=".9" color="#F00"></a-cylinder>
+	  
+	  <!-- a-scene comments -->
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" material="color: #333"
+	    text='color: white; align: left; 
+		  value: <!-- Dies ist der Code zur Szene -->
+		  <a-scene>;
+		  width: 1.5' position="0 2.6 -2.7"></a-entity>
+	  <a-entity geometry="primitive: plane; width: auto; height: auto" material="color: #333"
+	    text='color: white; align: left; 
+		  value: </a-scene>
+		  <!-- Den Rest erledigt aFrame fuer uns -->;
+		  width: 1.5' position="0 .5 -2.4"></a-entity>
+	  <!-- exits -->
+	  <a-link href="https://aframe.io/" title="Mehr Beispiele (externer Link)" image="#aframe" position="-5 2 -6" rotation="0 25 0"></a-link>
+	  <a-link href="https://aframe.io/aframe/examples/" title="Noch mehr Beispiele (externer Link)" image="#aframe" position="-3.5 1.9 -7" rotation="0 12.5 0"></a-link>
+	  <a-link href="ballgame" title="Weiter zum Ballspiel" image="#ballgame" position="3 2 -7""></a-link>
+	  <a-link href="../anleitung" title="Rundgang beenden" position="5 2 -6" rotation="0 -25 0""></a-link>
+	  
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>

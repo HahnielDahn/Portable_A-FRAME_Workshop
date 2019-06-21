@@ -1,0 +1,20 @@
+<h2>Einen eigenen A-Frame anlegen</h2>
+
+Um deinen eigenen A-Frame anzulegen, gehst du in den Ordner <em>views/freiesArbeiten</em> und legst dort eine neue Datei an.
+Achte darauf, dass sie die Endung <em>.ejs</em> erhält.
+Du kannst es dir auch einfach machen und eine existierende Datei aus diesem Ordner kopieren und umbenennen, dann hast du auch den Standardaufbau der HTML dabei.
+Dafür empfehle ich, das <a href="../freiesArbeiten/beispiel_mit_kommentaren">beispiel_mit_kommentaren.ejs</a> zu verwenden.
+
+<h2>Einen eigenen A-Frame im Browser anzeigen</h2>
+
+Öffne den <a href="../freiesArbeiten/beispiel_ententeich">beispiel_ententeich.ejs</a> im Browser und sieh dir die Adresse in der Adresszeile genau an.
+Der Aufbau ist wie folgt:<br>
+Zunächst der Server: Wir greifen auf unseren eigenen PC zu, dafür gibt es das speziele Schlüsselwort <em>localhost</em> (eng. so viel wie "Vor-Ort-Gastgeber").<br>
+Nach einem Doppelpunkt kommt die Portnummer, das ist sowas wie die Hausnummer, hinter der unser Node.JS sitzt und auf Anfragen wartet.<br>
+Danach kommt der erste Stop im Pfad.
+Er heißt <em>freiesArbeiten</em>. Damit du dir den Pfad besser merken kannst, wurde er so genannt wie das Verzeichnis, in dem du deinen A-Frame abgelegt hast.<br>
+Und in der nächsten Ebene des Pfads kommt der Dateiname, so wie er im Verzeichnis ist, nur ohne Endung.
+
+</p><p>
+
+Wenn du also eine Datei mit dem Namen <em>riesenEnte.ejs</em> erstellt hast, lautet der Pfad <em>localhost:3000/freiesArbeiten/riesenEnte</em> (ohne die Endung <em>.ejs</em>).

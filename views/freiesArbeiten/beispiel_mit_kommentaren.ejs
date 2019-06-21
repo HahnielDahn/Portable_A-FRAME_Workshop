@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Dies ist ein Kommentar -->
+<!-- In HTML beginnen Kommentare mit <!-- und enden mit -->
+<!-- Alles was zwischen diesen Zeichenfolgen steht, wird nicht im Browser angezeigt -->
+<!-- Das Auskommentieren 
+	geht auch über
+	mehrere 
+	Zeilen hinweg
+	-->
+<html>
+  <head>
+    <title>Beispiel-Projekt von A-Frame School mit Kommentaren</title>
+    <meta charset="utf-8">
+    <!-- Die folgende Zeile sorgt dafür, dass der Standardcode der A-Frame Engine
+		vom Clienten geladen wird.
+    Diese ist notwendig, damit A-Frame in unserer Webseite funktioniert.
+		-->
+    <script src="../javascripts/aframe-master.min.js"></script>
+  </head>
+  <body>
+    <!-- Ab hier wird die Szene beschrieben -->
+    <a-scene>
+	  <!-- In der Szene sind eine Box, eine Kugel (sphere), ein Zylinder (cylinder)
+	    sowie eine Ebene (plane) zu sehen. Außerdem wurde der Himmel (sky) eingefärbt.
+		-->
+	  <!-- Die dargestellten Objekte haben verschiedene Eigenschaften, sogenannte Attribute.
+	    z.B. eine Position im Raum (position), ob das Objekt gedreht wurde (rotation)
+		und welche Farbe es hat (color)
+		-->
+	  <!-- Die Attribute Radius (radius), Breite (width), Höhe (height) beschreiben, wie
+      groß ein Objekt ist. Falls diese Angabe fehlt, wird von A-Frame automatisch der Wert 1
+      gesetzt.
+      Eine Länge von 1 entspricht in etwa einem Meter.
+		-->
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>

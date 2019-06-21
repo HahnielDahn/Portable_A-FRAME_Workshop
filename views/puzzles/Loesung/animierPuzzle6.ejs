@@ -1,0 +1,14 @@
+
+    <a-box position="0 3 0" color="#990099"
+      animation="property:rotation; to:0 0 360; dur:10000; loop:true; easing:linear">
+      
+      <a-sphere position="0 -2.5 0" radius="0.5" color="blue"></a-sphere>
+      <a-sphere position="2.5 0 0" radius="0.5" color="blue"></a-sphere>
+      <a-sphere position="0 2.5 0" radius="0.5" color="blue"></a-sphere>
+      <a-sphere position="-2.5 0 0" radius="0.5" color="blue"></a-sphere>
+
+      <a-sphere position="2.5 0 0" radius="0.6" color="red"
+        animation="property:position; to:-2.5 0 0; dur:5000; loop:true; easing:easeInOutQuad; dir:alternate;"></a-sphere>
+      <a-sphere position="0 2.5 0" radius="0.6" color="green"
+        animation="property:position; to:0 -2.5 0; dur:5000; loop:true; easing:easeInOutQuad; dir:alternate;"></a-sphere>
+    </a-box>

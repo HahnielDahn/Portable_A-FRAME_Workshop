@@ -1,0 +1,91 @@
+<h2>Vorstellung der Werkzeuge</h2>
+Für den Workshop werden verschiedene Technologien eingesetzt, welche mit verschiedenen Schlagworten verknüpft sind.
+<br>Sie lassen sich grob in 3 Bereiche einteilen:
+<table>
+<tr><th>Server</th><th>A-Frame</th><th>Texteditor</th></tr>
+<tr>
+	<td><ul><li>Node.JS</li><li>Express</li><li>Nodemon</li><li>Embedded JavaScript templating (ejs)</li><li>Javascript</li><li>HTTP</li><li>URI</li></ul></td>
+	<td><ul><li>A-Frame</li><li>Javascript</li><li>HTML</li></ul></td>
+	<td><ul><li>Notepad++</li><li>Syntax Highlighting</li></ul></td>
+</tr>
+</table>
+
+<h3>Der Server</h3>
+<p>
+Der komplette Workshop ist als Server implementiert.
+Das heißt, dass jeder, der im gleichen Netzwerk ist, sich den Workshop in seinem Browser anzeigen lassen kann (es sei denn, eine Firewall oder ähnliche Sicherheitssoftware blockiert dies).
+Was andere nicht können, ist, die lokalen Dateien zu verändern.
+Dies geht nur von dem PC aus, auf dem der Server ausgeführt wird.
+
+</p><p>
+
+Das Ganze funktioniert so:
+Wenn jemand über den Browser eine Verbindung zu dem Server aufbauen will, dann schickt sein Browser eine HTTP Anfrage an den Server.
+<em>HTTP</em> oder Hyper-Text Transfer Protkol ist eine Vereinbarung, die es Maschinen ermöglicht, miteinander zu kommunizieren.
+Der Server nimmt die Anfrage entgegen und überprüft, ob er die Anfrage bearbeiten kann.
+Falls er dies kann, gibt er eine entsprechende Antwort zurück.
+
+<div class="hinweis">Hinweis: Der Workshop-Server stellt lediglich Webseiten zur Verfügung, d.h. alle Anfragen die er beantworten kann, geben dem Anfragenden eine Webseite zurück.</div>
+</p><p>
+
+Die Server-Logik ist in der Programmiersprache <em>JavaScript</em> für die Laufzeitumgebung <em>Node.JS</em> geschrieben.
+Javascript wird üblicherweise in Webseiten verwendet, um zusätzliche Funktionen zu ermöglichen, sie hat aber auch andere Anwendungsbereiche, wie etwa zum Beschreiben des Verhaltens eines Node.JS Servers.
+Der Prozessor, also der verarbeitende Kern eines Computers, kann aber Javascript nicht direkt interpretieren, sondern es muss erst in Maschinensprache übersetzt werden. Dafür ist die Node.JS-Laufzeit verantwortlich.
+Dies geschieht einmal beim Start des Servers.
+Falls, während der Server aktiv ist, Dateien geändert werden, treten die Änderungen erst nach einem Neustart in Kraft.
+Deshalb ist auf dem Server die <em>Nodemon</em>-Erweiterung aktiv, welche Änderungen bemerkt und auf den laufenden Server überträgt.
+<em>Express</em> ist ebenfalls eine Erweiterung von Node.JS. Sie dient dazu, Arbeit für die Programmierung des Servers abzunehmen, indem sie häufig verwendete Funktionen bereits implementiert hat.
+<div class="hinweis">Hinweis: Server-Dateien enden mit ".JS". Für keine der Aufgaben ist es notwendig, Server-Dateien zu verändern.</div>
+
+</p>
+<h3>A-Frame</h3>
+<p>
+
+A-Frame ist der Kern des Workshops und wird in allen folgenden Aufgaben verwendet.
+Es verwendet eine Mischung aus <em>HTML</em> und <em>JavaScript</em>, um den 3D-Raum zu beschreiben.
+Für das Erzeugen einer einfache Szenen reicht <em>HTML</em> vollkommen aus.
+HTML oder <em>Hyper-Text Mark-Up Language</em> wird üblicherweise verwendet, um Aufbau und Struktur von Webseiten maschinenverständlich und menschenlesbar zu beschreiben.
+
+<div class="hinweis">Hinweis: Innerhalb des &lt;a-scene&gt;-Tags befindet sich alles, was durch A-Frame angezeigt wird.
+Für die meisten Aufgaben ist es nicht notwendig, das HTML außerhalb dieses Tags zu editieren,
+daher wird z.B. in den Puzzle-Aufgaben nur der Raum innerhalb dieses Tags zur Verfügung gestellt.</div>
+</p><p>
+
+Mithilfe des HTML-Anteils von A-Frame lassen sich sehr einfach Objekte im Raum platzieren, drehen, beleuchten und mit einfachen Animationen versehen.
+Für komplexere Interaktionen, wie jene im Ballspiel, reicht das allerdings oft nicht aus.
+A-Frame selbst ist in JavaScript geschrieben und kann daher mit weiterem, selbst geschriebenem JavaScript erweitert werden, um die Interaktionen zu ermöglichen, die wir erzielen möchten.
+
+<div class="hinweis">Hinweis: JavaScript ist eine Programmiersprache und benötigt aufgrund der ungewohnten Arbeitsweise eine längere Eingewöhnungszeit.
+<br>
+HTML hingegen hat eine niedrige Lernkurve und erzeugt bereits früh gute Ergebnisse.
+Aufgrund der begrenzten Zeit werden wir uns daher überwiegend mit HTML beschäftigen.</div>
+
+</p>
+<h3>Texteditor</h3>
+<p>
+
+Das Schöne an HTML und JavaScript ist, dass es mit sehr einfachen Mitteln erzeugt werden kann.
+Ein voheriges <em>Kompilieren</em> (Verwandeln in Maschinensprache) und Übertragen der entstandenen <em>Binärdateien</em> fällt weg,
+ weil der Client (also derjenige, der auf unsere Webseite zugreift) den Code selber interpretiert.
+Diese Aufgabe übernimmt der Browser des Empfängers und verarbeitet eigenständig unseren Code.
+
+</p><p>
+
+Daher reicht uns ein simples Werkzeug wie ein Texteditor aus.
+Der Texteditor, den wir verwenden, nennt sich <em>Notepad++</em>.
+Der Name ist eine Hommage an den Windows Standard-Texteditor <em>Notepad</em> und das ++ bedeutet in fast allen Programiersprachen <em>eins dazu zählen</em>.
+<em>Notepad++</em> bedeutet also "eins besser als Notepad".
+Die Überlegenheit von Notepad++ gegenüber Notepad zeigt sich anhand verschiedener Features/Eigenschaften, die Notepad nicht hat.
+Allen vorran ist für uns das <em>Syntax-Highlighting</em> wichtig, also das Betonen von HTML-Tags und JavaScript-Steuerelementen durch farbige Hervorhebung.
+
+<div class="hinweis">
+  Hinweis: Das Syntax-Highlighting ist für jede Sprache unterschiedlich.
+  Normalerweise schafft es Notepad++ von selbst, ein passendes Highlighting zu bestimmen.
+  Falls nicht, kannst du im Reiter <em>Sprachen</em> das gewünschte Highlighting auch manuell auswählen.
+</div>
+
+<div class="hinweis">Hinweis: <b>.js</b> Dateien benötigen <em>JavaScript-Highlighting</em>.
+ <b>.htm</b>, <b>.html</b> und <b>.ejs</b> Dateien lesen sich mit <em>JSP-Highlighting</em> sehr gut.</div>
+
+</p>
+Wechsle auf die nächste Seite um mehr zu erfahren.

@@ -1,0 +1,281 @@
+<h2>A-Frame Objekte</h2>
+<p>
+
+Im vorherigen Abschnitt haben wir unsere ersten A-Frame-Objekte kennengelernt, die wir im Raum platzieren können.
+Sie befinden sich auch auf deinem Spickzettel.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+ &lt;a-box&gt;  &lt;/a-box&gt; <span style="color: #008000">&lt;!-- Eine Kiste --&gt;</span>
+ <br>
+ &lt;a-sphere&gt;  &lt;/a-sphere&gt; <span style="color: #008000">&lt;!-- Eine Kugel --&gt;</span>
+ <br>
+ &lt;a-cylinder&gt;  &lt;/a-cylinder&gt; <span style="color: #008000">&lt;!-- Ein Zylinder --&gt;</span>
+ <br>
+ &lt;a-plane&gt;  &lt;/a-plane&gt; <span style="color: #008000">&lt;!-- Eine Ebene --&gt;</span>
+ <br>
+ &lt;a-sky&gt;  &lt;/a-sky&gt; <span style="color: #008000">&lt;!-- Der Horizont, ja den gibts nur einmal --&gt;</span>
+</div>
+
+</p><p>
+
+Neben diesen gibt es noch viele weitere Objekte, die ganze spezielle Aufgaben erfüllen.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+ &lt;a-text&gt;  &lt;/a-text&gt; <span style="color: #008000">&lt;!-- Ein schwebender Text --&gt;</span>
+ <br>
+ &lt;a-link&gt;  &lt;/a-link&gt; <span style="color: #008000">&lt;!-- Eine klickbare Verknüpfung zu einer anderen Web-Seite in Form einer schwebenden Scheibe --&gt;</span>
+ <br>
+ &lt;a-light&gt;  &lt;/a-light&gt; <span style="color: #008000">&lt;!-- Eine Lichtquelle --&gt;</span>
+ <br>
+ ...
+</div>
+
+</p><p>
+
+Beschränken wir uns zunächst auf die ersten vier, &lt;a-box&gt;, &lt;a-sphere&gt;, &lt;a-cylinder&gt; und &lt;a-plane&gt;.
+Alle weiteren Objekte werden nach Bedarf in späteren Abschnitten eingeführt und haben alle große Ähnlichkeiten in der Handhabung mit diesen geometrischen Primitivformen.
+
+</p>
+<h2>Allgemeine Attribute</h2>
+<p>
+
+Der volle Text der &lt;a-box&gt; aus dem Beispiel lautet:
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"&gt; &lt;/a-box&gt;
+</div>
+
+</p><p>
+
+Der öffnende Tag enthält zusätzliche Informationen zu den Eigenschaften der &lt;a-box&gt;, diese werden <em>Attribute</em> genannt.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  position="-1 0.5 -3" <span style="color: #008000">&lt;!-- Sie befindet sich an den Koordinaten x:-1, y:+0.5 und z:-3 --&gt;</span>
+  <br>
+  rotation="0 45 0" <span style="color: #008000">&lt;!-- Sie ist um 45 um die y-Achse gedreht --&gt;</span>
+  <br>
+  color="#4CC3D9" <span style="color: #008000">&lt;!-- Sie hat die Farbe #4CC3D9 --&gt;</span>
+</div>
+<div class="hinweis">Hinweis: Jedes Attribut hat einen im Tag einzigartigen Namen (z. B. <em>Position</em>).
+  Die <em>Anführungszeichen</em> umschließen dabei den Wert des Attributs und das <em>Istgleich</em> steht symbolisch für die Zuordnung.
+  Ohne diese Steuerzeichen kann der Client die Attribute nicht richtig identifizieren.
+  Falls deine Szene mal nicht richtig angezeigt wird, überprüfe daher, ob die Steuerzeichen richtig gesetzt sind.
+</div>
+
+</p>
+<h3>Attribut - Position (eng. für Position im Raum)</h3>
+<p>
+
+A-Frame hat ein dreidimensionales Koordinatensystem.
+Das heißt, wir haben es mit 3 Achsen zu tun, welche gemäß der <em>Rechte-Hand-Regel</em> im Raum liegen.
+<br>
+<img src="../images/koordinatensystem.png" alt="koordinatensystem" height="200">
+<br>
+Der Daumen zeigt dabei nach rechts (x-Achse), der Zeigefinger nach oben (y-Achse) und der Mittelfinger auf einen selbst (z-Achse).
+Die Kiste aus dem Beispiel ist mit
+</p><p>
+<div style="border-style: solid;border-width: 1px;">
+  position="-1 0.5 -3" <span style="color: #008000">&lt;!-- Koordinaten x:-1, y:+0.5 und z:-3 --&gt;</span>
+</div>
+</p><p>
+also um 1 Längeneinheit nach links, 0.5 Längeneinheiten nach oben und 3 Längeneinheiten von uns weg platziert.
+Die Position bezieht sich immer auf den Mittelpunkt des jeweiligen Objekts.
+
+<div class="hinweis">Hinweis: Probier doch gleich mal in Notepad++ eine der Zahlen größer oder kleiner zu machen und beobachte, wie sich die Kiste im Browser verschiebt.
+</div>
+<div class="hinweis">Hinweis: Denk daran, deine Änderung in Notepad++ zu speichern und lass den Browser die aktuelle Version der Datei mit <em>F5</em> vom Server holen.
+ Falls du die neue Box nicht gleich siehst, lauf ein wenig herum.
+</div>
+
+</p>
+<h3>Attribut - Rotation (eng. für Drehung, Orientierung)</h3>
+<p>
+
+Das Attribut <em>rotation</em> beschreibt, um wieviel Grad sich das Objekt um die jeweilige Achse gedreht hat.
+Dabei wird angenommen, dass alle drei Achsen durch den Mittelpunkt des jeweiligen Objekts gehen.
+Nachdem ein Objekt um 360 Grad um eine der Achsen rotiert ist, befindet es sich wieder in der Ausgangsposition.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  rotation="0 45 0" <span style="color: #008000">&lt;!-- 0 Grad um x-Achse, 45 Grad um y-Achse und 0 Grad um die z-Achse --&gt;</span>
+</div>
+
+<div class="hinweis">Hinweis: Am besten gleich ausprobieren! Verändere eine der Zahlen und beobachte, wie sich die Kiste im Browser dreht.
+</div>
+
+<div class="hinweis">Hinweis: Eine Kiste ist extrem symmetrisch und man kann daher Drehungen schlecht erkennen (alle 90 Grad ist sie wieder in der Ausgangsposition).
+ Am Zylinder hingegen kann man Drehungen um die x-Achse und z-Achse sehr gut sehen.
+ Der &lt;a-cylinder&gt; hat noch kein Rotations-Attribut; füge es einfach wie folgt hinzu:<br>
+ <div  style="border-style: solid;border-width: 1px;">
+  &lt;a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" <span style="color: #0000ff">rotation="45 0 0"</span>&gt; &lt;/a-cylinder&gt;
+ </div>
+</div>
+
+<div class="hinweis">Hinweis: Denk daran, deine Änderung in Notepad++ zu speichern und lass den Browser die aktuelle Version der Datei mit <em>F5</em> vom Server holen.
+</div>
+
+</p>
+<h3>Attribut - Color (eng. für Farbe)</h3>
+<p>
+
+Das Attribut <em>color</em> gibt an welche Farbe ein Objekt haben soll.
+Im Beispiel wurde dafür ein besondere Schreibweise verwendet, ein sogenannter Hexadezimaler RGB-Code.
+Das Raute-Zeichen "#" deutet an, dass die Zahlen nicht von 0 bis 9 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9) gehen sondern von 0 bis f (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, a, b, c, d, e, f).
+D.h. ein #f wäre in Dezimalschreibweise 15.
+Addiert man #1 (Dezimal 1) zu #f dazu erhält man #10 (Dezimal 16).
+Ein Hexadezimaler RGB-Code besteht immer aus sechs Stellen.
+Die ersten beiden stellen den Rotanteil dar (min 00 bis ff max), die dritte und vierte stellen den Grünanteil und die letzten beiden stellen den Blauanteil dar.
+Die Mischung aus diesen drei Grundtönen ergibt die eigentliche Farbe des Objekts.
+
+<div class="hinweis">Hinweis: Probiere das gleich mal aus und ändere das <em>color</em>-Attribut nacheinander auf #ff0000 (rot), #00ff00 (grün) und #0000ff (blau).
+  Dann mische deine eigenen Farben!
+</div>
+
+<div class="hinweis">Hinweis: Zu viel auf einmal? Kein Sorge, es gibt festgelegte HTML-Farb-Wörter die du anstelle der Hex-Zahl verwenden kannst.
+  Du findest eine große Auswahl hier: <a href="https://www.w3schools.com/colors/colors_names.asp">HTML Color Names - W3Schools</a>.
+  Vergiss nicht, das # wegzulassen wenn du ein HTML-Farb-Wort verwendest.
+</div>
+
+<div class="hinweis">Hinweis: Ändere doch mal die Farbe des &lt;a-cylinder&gt; auf die Farbe einer Tomate (eng. "tomato")<br>
+  <div  style="border-style: solid;border-width: 1px;">
+  &lt;a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color=<span style="color: #0000ff">"tomato"</span>&gt; &lt;/a-cylinder&gt;
+ </div>
+</div>
+
+<div class="hinweis">Hinweis: Denk daran, deine Änderung in Notepad++ zu speichern und lass den Browser die aktuelle Version der Datei mit <em>F5</em> vom Server holen.
+</div>
+
+</p>
+<h3>Attribut - Scale (eng. für Skalierung, Vergrößerungsfaktor)</h3>
+<p>
+
+Von den Objekten im Beispiel hat noch keines das Attribut <em>scale</em>. Ein sehr einfaches <em>scale</em> sieht wie folgt aus:
+
+</p><p>
+
+<div  style="border-style: solid;border-width: 1px;">
+  scale="1 1 1"
+ </div>
+ 
+</p><p>
+
+Genau wie bei <em>position</em> und <em>rotation</em> stehen die drei Zahlen wieder für die drei Achsen in unserem Koordinatensystem.
+Die erste Zahl beschreibt, um wieviel die Ausbreitung entlang der x-Achse gestreckt werden soll, die zweite entlang der y-Achse und die dritte entlang der z-Achse.
+
+<div class="hinweis">Hinweis: Wenn du eines der Objekte aus dem Beispiel um das Attribut <em>scale</em>, so wie es oben steht, erweiterst,
+  wirst du nicht viel Unterschied sehen, da es sich bei den Zahlen um einen Faktor handelt.
+  Probiere Zahlen größer als 1 und Zahlen zwischen 0 und 1 aus. Denk daran, dass bei Fließkommazahlen nach englischer Schreibweise anstelle eines Kommas ein Punkt gesetzt wird.
+</div>
+
+<div class="hinweis">Hinweis: Denk daran, deine Änderung in Notepad++ zu speichern und lass den Browser die aktuelle Version der Datei mit <em>F5</em> vom Server holen.
+</div>
+
+</p>
+<h2>Objektspezifische Attribute</h2>
+<p>
+
+Manche Objekte haben neben den obigen Attributen auch noch spezifische Attribute.
+So hat die &lt;a-box&gt; eine Breite (<em>width</em>), eine Höhe (<em>height</em>) und eine Tiefe (<em>depth</em>).
+Der &lt;a-box&gt; aus dem Beispiel fehlen diese Attribute, daher wurden sie von A-Frame automatisch mit dem Wert "1" belegt.
+In etwa so:
+
+</p><p>
+
+<div  style="border-style: solid;border-width: 1px;">
+  &lt;a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" width="1" height="1" depth="1"&gt; &lt;/a-box&gt;
+ </div>
+ 
+</p><p>
+
+Das ist jetzt schon ein ganzer Haufen an Attributen. Zur besseren Übersicht sollten wir diese untereinander schreiben und mit Einrückungen versehen.
+ 
+</p><p>
+
+<div  style="border-style: solid;border-width: 1px;">
+  &lt;a-box <br>
+  &nbsp;&nbsp; position="-1 0.5 -3"<br>
+  &nbsp;&nbsp; rotation="0 45 0"<br>
+  &nbsp;&nbsp; color="#4CC3D9"<br>
+  &nbsp;&nbsp; width="1"<br>
+  &nbsp;&nbsp; height="1"<br>
+  &nbsp;&nbsp; depth="1"&gt;<br>
+  &lt;/a-box&gt;
+</div>
+ 
+<div class="hinweis">Hinweis: Probier das gleich mit verschiedenen Werten für <em>width</em>, <em>height</em> und <em>depth</em> aus.
+</div>
+
+<div class="hinweis">Hinweis: Denk daran, deine Änderung in Notepad++ zu speichern und lass den Browser die aktuelle Version der Datei mit <em>F5</em> vom Server holen.
+</div>
+
+</p><p>
+
+Eine &lt;a-sphere&gt; hingegen hat nur das Attribut Radius (<em>radius</em>), um die Größe der Kugel festzulegen.
+Im Beispiel wurde eine Kugel mit dem Radius 1.5 definiert.
+Wenn du keine Kugel, sondern eher ein Oval haben möchtest, benutze das Attribut <em>scale</em> und skaliere über die verschiedenen Achsen mit verschiedenen Faktoren.
+
+<div  style="border-style: solid;border-width: 1px;">
+  &lt;a-sphere <br>
+  &nbsp;&nbsp; position="0 1.25 -5"<br>
+  &nbsp;&nbsp; radius="1.25"<br>
+  &nbsp;&nbsp; color="#EF2D5E"<br>
+  &nbsp;&nbsp; scale="1 1 1"&gt;<br>
+  &lt;/a-sphere&gt;
+</div>
+
+</p><p>
+
+Ein &lt;a-cylinder&gt; wiederum hat die Attribute Radius (<em>radius</em>) und Höhe (<em>height</em>).
+Der <em>radius</em> legt den Radius der Kreisgrundfläche fest und die <em>height</em> wie hoch der Zylinder ist.
+Wenn wir das Attribut <em>scale</em> hinzufügen, können wir den Zylinder noch weiter verformen.
+
+<div  style="border-style: solid;border-width: 1px;">
+  &lt;a-cylinder <br>
+  &nbsp;&nbsp; position="1 0.75 -3"<br>
+  &nbsp;&nbsp; radius="0.5"<br>
+  &nbsp;&nbsp; height="1.5"<br>
+  &nbsp;&nbsp; color="#FFC65D"<br>
+  &nbsp;&nbsp; scale="1 1 1"&gt;<br>
+  &lt;/a-cylinder&gt;
+</div>
+
+</p><p>
+
+Ein Ebene (&lt;a-plane&gt;) ist von den Attributen her wieder nahe an der &lt;a-box&gt;.
+Sie hat eine Breite (<em>width</em>) und eine Höhe (<em>height</em>).
+Das liegt daran, dass eine Ebene in A-Frame erst einmal im Raum steht wie eine Mauer.
+Erst wenn man über das Attribut <em>rotation</em> die Ebene um 90 Grad nach hinten (deswegen negativ, -90) über die x-Achse kippt, wird sie zu einer Fläche, die einem Boden gleicht.
+Deswegen hat sie im Beispiel die <em>rotation</em> mit den Werten "-90 0 0".
+Auch die &lt;a-plane&gt; kann mit einer <em>scale</em> verzerrt werden, allerdings hat das Strecken in z-Richtung keinen Effekt, da die Ebene keine Tiefe hat.
+
+<div  style="border-style: solid;border-width: 1px;">
+  &lt;a-plane <br>
+  &nbsp;&nbsp; position="0 0 -4"<br>
+  &nbsp;&nbsp; rotation="-90 0 0"<br>
+  &nbsp;&nbsp; width="4"<br>
+  &nbsp;&nbsp; height="4"<br>
+  &nbsp;&nbsp; color="#7BC8A4"&gt;<br>
+  &nbsp;&nbsp; scale="1 1 1"&gt;<br>
+  &lt;/a-plane&gt;
+</div>
+
+</p><p>
+
+<div class="hinweis">Du hast jetzt viel über Attribute gelernt. Probier dein Wissen doch mal an diesen Puzzles aus:
+  <div>
+    <a href="/puzzle/Positionpuzzle?nummer=1">Schiebe Objekte an die richtige Stelle in Positionpuzzles</a>
+  </div><div>
+    <a href="../Puzzle/Skalierpuzzle?nummer=1">Verzerre Objekte in Skalierpuzzles</a>
+  </div><div>
+    <a href="../Puzzle/Positionpuzzle?nummer=1">Drehe Objekte in Rotierpuzzles</a>
+  </div>
+</div>

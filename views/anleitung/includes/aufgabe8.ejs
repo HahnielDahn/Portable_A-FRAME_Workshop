@@ -1,0 +1,99 @@
+<h2>Es werde Licht</h2>
+<p>
+
+Wenn wir in unserem A-Frame kein explizites Licht angeben, erzeugt A-Frame ein "Überall-Licht"-Licht und ein "Weit-Weg"-Licht.<br>
+Das "Überall-Licht" wird in Fachkreisen <em>ambient</em>-Licht genannt.
+Dieses sorgt dafür, dass es überall hell ist und wir gut sehen können.
+Allerdings ist es überall hell und überall gleich hell und das Licht ist einfach überall da und kommt von nirgends.
+Daher sind alle Flächen gleichmäßig hell und das Licht erzeugt keine Schatten.<br>
+Das "Weit-Weg"-Licht wird in Fachkreisen <em>directional</em>-Licht genannt.
+Es funktioniert wie die Sonne bei uns und erzeugt überall im A-Frame ein gleichmäßig einfallendes Licht.<br>
+Um die Kontrolle über das Licht zu bekommen, brauchen wir also erstmal eine Lichtquelle.
+Dafür gibt es den Tag &lt;a-light&gt; (eng. für "Licht").
+Zuerst machen wir mit einem <em>ambient</em>-Licht alles deutlich dunkler, außerdem sollten wir dem Himmel eine Farbe zuweisen, da dieser sonst grell-weiß bleibt.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-light type="ambient" color="#222"&gt; &lt;/a-light&gt;<br>
+  &lt;a-sky color="#aaaacc"&gt; &lt;/a-sky&gt;
+</div>
+
+</p><p>
+
+Jetzt ist es finster.
+Bauen wir uns eine Taschenlampe.
+Dazu müssen wir uns erst einmal selbst als Objekt in den A-Frame schreiben,
+bzw. die Kamera, durch die wir den A-Frame betrachten.
+Und dann können wir uns einen kleinen Scheinwerfer, ein sogenanntes <em>spot</em>-Licht, in die Hand geben.
+Eine Taschenlampe hat einen dünnen Lichtstrahl, daher nehmen wir einen kleinen Winkel für den <em>angle</em>.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-camera look-controls wasd-controls&gt;<br>
+  &nbsp;&nbsp; &lt;a-light position="0.1 -0.1 0" type="spot" color="#ffffff" angle="15"&gt; &lt;/a-light&gt;<br>
+  &lt;/a-camera&gt;
+</div>
+
+</p><p>
+
+<div class="hinweis">Hinweis: Du kannst die Farbe des Lichts beliebig einstellen.
+  Weißes Licht hat von allen drei Grundfarben (rot, grün und blau) gleichmäßig viele Anteile.
+</div>
+
+<div class="hinweis">Hinweis: Um das Taschenlampen-Gefühl noch etwas zu verbessern, können wir noch ein paar Verzierungen an das &lt;a-light&gt; anbringen.
+  Z.B. können wir das Licht mehr auf die Blickmitte werfen lassen, indem wir die <em>rotation</em> ändern, in der wir das Licht halten.
+  Dann haben Taschenlampen am Rand ja eher ein schwaches Licht, dieses können wir über das Attribut <em>penumbra</em> (eng. so viel wie "Halbschatten") steuern.
+  Der Wert von <em>penumbra</em> geht von 0 bis 1 - bei 0 ist gar nichts verdunkelt, bei 1 alles.
+  Wir möchten nur ein wenig, daher setzen wir den Wert auf 0.2.
+  <div style="border-style: solid;border-width: 1px;">
+    &lt;a-light position="0.3 -0.3 0" rotation="0 10 0" type="spot" color="#ffffff" angle="15" penumbra="0.2"&gt; &lt;/a-light&gt;
+  </div>
+</div>
+
+<div class="hinweis">Hinweis: Mehr zu Licht gibt es in der <a href="https://aframe.io/docs/master/components/light.html">Dokumentation von A-Frame</a> (externer Link, Englisch).
+</div>
+
+</p>
+<h2>Wo es Licht gibt, da sollte es auch Schatten geben</h2>
+<p>
+
+Jetzt haben wir ein Licht, das Schatten werfen kann. Allerdings muss man diese Fähigkeit trotzdem erst noch aktivieren, d.h. wir müssen dem &lt;a-light&gt; das <em>light</em> Attribut mit der Fähigkeit <em>castShadow</em> (eng. "kann Schatten erzeugen") mit <em>true</em> (eng. für "etwas ist wahr") zuweisen.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-camera look-controls wasd-controls&gt;<br>
+  &nbsp;&nbsp; &lt;a-light position="0.1 -0.1 0" type="spot" color="#ffffff" angle="15" <span style="color:#0000ff">light="castShadow:true;"</span>&gt; &lt;/a-light&gt;<br>
+  &lt;/a-camera&gt;
+</div>
+
+</p><p>
+
+In ähnlicher Form müssen wir der Ente sagen, dass sie Schatten werfen kann.
+Dies geschieht, indem man sie mit dem Attribut <em>shadow</em> (eng. für "Schatten") verziert.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-gltf-model <span style="color:#ff0000">(andere Attribute)</span> <span style="color:#0000ff">shadow</span>&gt; &lt;/a-gltf-model&gt;
+</div>
+
+</p><p>
+
+Und dann müssen wir dem Boden natürlich sagen, dass sich auf ihm ein Schatten abzeichnen kann.
+Dies geschieht, genau wie bei der Ente, indem wir die betroffene Fläche mit dem Attribut <em>shadow</em> verzieren.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-plane <span style="color:#ff0000">(andere Attribute)</span> <span style="color:#0000ff">shadow</span>&gt; &lt;/a-plane&gt;<br>
+  &lt;a-ring <span style="color:#ff0000">(andere Attribute)</span> <span style="color:#0000ff">shadow</span>&gt; &lt;/a-ring&gt;<br>
+  &lt;a-circle <span style="color:#ff0000">(andere Attribute)</span> <span style="color:#0000ff">shadow</span>&gt; &lt;/a-circle&gt;
+</div>
+
+<div class="hinweis">Hinweis: Mehr zu Schatten gibt es in der <a href="https://aframe.io/docs/master/components/shadow.html">Dokumentation von A-Frame</a> (externer Link, Englisch).
+</div>
+
+</p>

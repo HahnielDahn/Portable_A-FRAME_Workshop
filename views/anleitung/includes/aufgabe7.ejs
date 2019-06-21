@@ -1,0 +1,121 @@
+<h2>Ente dreh dich</h2>
+<p>
+
+Die Ente aus <a href="../freiesArbeiten/ententeich_nachbauen">ententeich_nachbauen.ejs</a> ist im Wasser, jetzt soll sie aber noch schwimmen lernen.
+Zeit für eine <em>animation</em>.
+Die Ente soll im Kreis schwimmen - das klingt so, als bräuchten wir ein <em>animation="property:rotation;"</em>. Gleich mal ausprobieren.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-gltf-model position="0 0 -6" src="../gltf/Duck/glTF/duck.gltf"<br>
+  &nbsp;&nbsp; <span style="color:#0000ff">animation="property:rotation; to: 0 360 0; dur:10000; loop:true;"</span>&gt; &lt;/a-gltf-model&gt;
+</div>
+
+</p><p>
+
+Oh nein!
+Die Ente schwimmt nicht, wie erwartet, im Kreis sondern dreht sich auf der Stelle!
+Was ist passiert?<br>
+Die Ente wird um eine gedachte y-Achse gedreht, allerdings geht diese y-Achse durch den Mittelpunkt der Ente und dadurch dreht sie sich auf der Stelle.
+Wir müssen also den Bezugspunkt der Achse verschieben.
+Das machen wir, indem wir die Ente in einem anderen Objekt verschachteln.
+Wenn du dir die Quelldatei <a href="../freiesArbeiten/beispiel_ententeich">beispiel_ententeich.ejs</a> ansiehst, wirst du sehen,
+ dass die Ente in die Fläche, die das Wasser darstellt, verschachtelt ist.
+Das bedeutet, im Beispiel dreht sich die komplette Wasserfläche. Wir sehen es nur nicht, weil das Wasser keine Struktur hat und vollkommen gleichmäßig blau ist.
+Wir machen es diesmal etwas eleganter, indem wir ein &lt;a-entity&gt; verwenden.
+Wenn du den Bezugspunkt sichbar haben willst, kannst du auch eine &lt;a-box&gt; verwenden, dann siehst du auch sehr gut, wie sich die Ente passend dazu dreht.
+ Du kannst die Box über <em>scale</em> kleiner machen, damit sie nicht so aufdringlich ist.
+
+</p><p>
+ 
+<div style="border-style: solid;border-width: 1px;">
+  <span style="color:#0000ff">&lt;a-entity position="0 -1 -6"<br>
+  &nbsp;&nbsp; &nbsp;&nbsp; animation="property:rotation; to: 0 360 0; dur:10000; loop:true;"&gt;</span><br>
+  &nbsp;&nbsp; &lt;a-gltf-model position="0 0.5 1" src="../gltf/Duck/glTF/duck.gltf"&gt; &lt;/a-gltf-model&gt;<br>
+  <span style="color:#0000ff">&lt;/a-entity&gt;</span>
+</div>
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  <span style="color:#aa0000">&lt;a-box position="0 -1 -6" scale="0.2 0.2 0.2" color="#aaaaaa"<br>
+  &nbsp;&nbsp; animation="property:rotation; to: 0 360 0; dur:10000; loop:true;"&gt;</span><br>
+  &nbsp;&nbsp; &lt;a-gltf-model position="0 0.5 1" src="../gltf/Duck/glTF/duck.gltf"&gt; &lt;/a-gltf-model&gt;<br>
+  <span style="color:#aa0000">&lt;/a-box&gt;</span>
+</div>
+<div class="hinweis">Hinweis: Da die Ente in der &lt;a-box&gt; verschachtelt ist,
+ wird sie ebenfalls vom <em>scale</em> betroffen und deshalb deutlich kleiner sein als vorher.
+ Wenn du sowohl die Box, als auch die Ente in normaler Größe haben willst, kannst du die beiden Techniken kombinieren:
+  <div style="border-style: solid;border-width: 1px;">
+    <span style="color:#0000ff">&lt;a-entity position="0 -1 -6" animation="property:rotation; to: 0 360 0; dur:10000; loop:true;"&gt;</span><br>
+    <span style="color:#aa0000">&nbsp;&nbsp; &lt;a-box position="0 0 0" scale="0.2 0.2 0.2" color="#aaaaaa"&gt; &lt;/a-box&gt;</span><br>
+    &nbsp;&nbsp; &lt;a-gltf-model position="0 0.5 1" src="../gltf/Duck/glTF/duck.gltf"&gt; &lt;/a-gltf-model&gt;<br>
+    <span style="color:#0000ff">&lt;/a-entity&gt;</span>
+  </div>
+</div>
+
+</p>
+<h2>Die Animation überarbeiten</h2>
+<p>
+
+Wenn man der Ente so zuschaut, schwimmt sie zu Beginn sehr langsam und wird immer schneller, um dann abrupt wieder langsam zu sein.
+Das liegt an dem <em>animation</em>-Attribut <em>easing</em>, was sich am besten mit "Verhalten an den Grenzen" übersetzten lässt.
+Also wie abrupt die Animation beginnt und wieder aufhört.
+Wenn dieses Attribut nicht gesetzt ist, spielt A-Frame die <em>animation</em> zunächst langsam und dann schneller werdend ab.
+Wir möchten aber, dass du Ente gleichmäßig schwimmt.
+Daher müssen wir das <em>easing</em> den Wert <em>linear</em> zuweisen, was in diesem Zusammmenhang so viel wie "gleichbleibend" bedeutet.
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-entity position="0 -1 -6"<br>
+  &nbsp;&nbsp; &nbsp;&nbsp; animation="property:rotation; to: 0 360 0; dur:10000; loop:true; easing:linear;"&gt;<br>
+  &nbsp;&nbsp; &lt;a-gltf-model position="0 0.5 1" src="../gltf/Duck/glTF/duck.gltf"&gt; &lt;/a-gltf-model&gt;<br>
+  &lt;/a-entity&gt;
+</div>
+
+</p>
+<h2>Noch mehr Animationen hinzufügen</h2>
+<p>
+
+Die Ente schwimmt jetzt gleichmäßig im Kreis, was ein ungewöhnliches Verhalten für ein Tier ist.
+Wir können die Bewegung der Ente abwechslungsreicher gestalten, indem wir eine zweite oder dritte Animation hinzufügen.
+Zum Beispiel könnten wir die Ente auf den (gedachten) Wellen hüpfen lassen.
+Wellen verhalten sich wellenförmig, also sinusförmig, daher nehmen wir für das <em>easing</em> den Wert <em>easeInOutSine</em>.
+Außerdem wollen wir, dass die Ente von der Welle hochgetragen und dann wieder sanft abgesetzt wird, daher müssen wir auch <em>dir</em> auf <em>alternate</em> setzten, damit die Animation abwechselnd vorwärts und abwärts abgespielt wird.
+Für die Abspieldauer <em>dur</em> wählen wir eine unterschiedliche Zeit als beim Schwimmen im Kreis, damit die Ente nicht immer an der gleichen Position oben bzw. unten ist.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-gltf-model position="0 0.5 1" src="../gltf/Duck/glTF/duck.gltf"<br>
+  &nbsp;&nbsp; animation="property:<span style="color:#0000ff">position; to: 0 1 1;</span>
+  dur:<span style="color:#0000ff">7000</span>; loop:true; <span style="color:#0000ff">easing:easeInOutSine; dir:alternate;</span>"&gt; &lt;/a-gltf-model&gt;
+</div>
+
+</p><p>
+
+Als Nächstes lassen wir die Ente ein klein wenig von links nach rechts kippen, wenn sie seitlich von Wellen getroffen wird.
+Um uns das Animieren etwas leichter zu machen, beginnt die Ente sofort auf einer der Extrempositionen der Animation, d.h. weit nach außen gebeugt, und schaukelt dann ganz genauso weit auf die andere Seite hinaus.
+Wir haben keinen hohen Seegang, also reicht ein kleiner Winkel von sagen wir mal 20 Grad.
+
+</p><p>
+
+<div style="border-style: solid;border-width: 1px;">
+  &lt;a-gltf-model position="0 0.5 1" src="../gltf/Duck/glTF/duck.gltf" rotation="-20 0 0"<br>
+  &nbsp;&nbsp; animation="property:position; to: 0 1 1; dur:7000; loop:true; easing:easeInOutSine; dir:alternate;"<br>
+  &nbsp;&nbsp; <span style="color:#0000ff">animation="property:rotation; to: 20 0 0; dur:7000; loop:true; easing:easeInOutSine; dir:alternate;"</span>&gt; &lt;/a-gltf-model&gt;
+</div>
+
+<div class="hinweis">Hinweis: Probier das aus bevor du weiterliest.<br>
+  Die zweite <em>animation</em> wird nicht abgespielt, dass liegt daran, dass wir zweimal das gleiche Attribut zuweisen.
+  Damit wir zwei <em>animation</em> an einem Objekt anbringen können, müssen wir dieser einen anderen Namen geben.
+  Die Konvention in A-Frame verlangt, dass wir zwei Unterstriche __ zum Markieren der Namensänderung einschieben.
+  Jetzt sollte die zweite <em>animation</em> auch abspielen.
+  <div style="border-style: solid;border-width: 1px;">
+    &lt;a-gltf-model position="0 0.5 1" src="../gltf/Duck/glTF/duck.gltf" rotation="-20 0 0"<br>
+    &nbsp;&nbsp; animation="property:position; to: 0 1 1; dur:7000; loop:true; easing:easeInOutSine; dir:alternate;"<br>
+    &nbsp;&nbsp; animation<span style="color:#0000ff">__2</span>="property:rotation; to: 20 0 0; dur:7000; loop:true; easing:easeInOutSine; dir:alternate;"&gt; &lt;/a-gltf-model&gt;
+  </div>
+</div>
+<div class="hinweis">Hinweis: Wenn du alle Details über <em>animation</em> erfahren willst, probier dich an der <a href="https://aframe.io/docs/master/components/animation.html">Dokumentation von A-Frame</a> (externer Link, Englisch).
+</div>

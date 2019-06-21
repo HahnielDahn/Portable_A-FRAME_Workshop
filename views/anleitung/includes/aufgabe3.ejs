@@ -1,0 +1,114 @@
+<h2>Lesen und Interpretieren eines A-Frame</h2>
+<p>
+
+Öffne erneut die Datei <em>beispiel_mit_kommentaren.ejs</em> aus dem vorherigen Abschnitt in Notepad++.
+<br>
+Wenn das Syntax-Highlighting auf JSP oder HTML eingestellt ist, werden
+ <span style="color: #008000">Kommentare grün</span>,
+ <span style="color: #0000ff">HTML-spezifische Tags blau</span> und
+ alles andere, wie etwa einfacher Text und A-Frame, schwarz dargestellt.
+<p></p>
+
+Eine HTML-Seite hat immer eine feste Abfolge von sogenannten Tags, welche dazu dienen, den Aufbau einer Webseite zu strukturieren:
+
+<div style="border-style: solid;border-width: 1px;">
+  <span style="color: #0000ff">
+    &lt;html&gt;
+    <br>
+    &nbsp;&nbsp; &lt;head&gt;
+    <br>
+    &nbsp;&nbsp; &lt;/head&gt;
+    <br>
+    &nbsp;&nbsp; &lt;body&gt;
+    <br>
+    &nbsp;&nbsp; &lt;/body&gt;
+    <br>
+    &lt;/html&gt;
+  </span>
+</div>
+
+Sie sind notwendig, damit der Client unsere Webseite richtig interpretieren kann.
+Zu jedem Tag gibt es eine öffnende Deklaration (z.B.
+ <span style="color: #0000ff">&lt;html&gt;</span>)
+ und eine schließende Deklaration (z.B.
+ <span style="color: #0000ff">&lt;/html&gt;</span>).
+Tags können auch verschachtelt sein (angedeutet durch die Einrückungen). So muss zum Beispiel ein
+ <span style="color: #0000ff">&lt;body&gt;</span>
+ immer von einem
+ <span style="color: #0000ff">&lt;html&gt;</span>
+ umgeben sein.
+Die &lt;a-scene&gt; wiederum muss innerhalb eines
+ <span style="color: #0000ff">&lt;body&gt;</span>
+ platziert werden.
+
+<div style="border-style: solid;border-width: 1px;">
+  <span style="color: #0000ff">
+    &lt;html&gt;
+    <br>
+    &nbsp;&nbsp; &lt;head&gt;
+    <br>
+    &nbsp;&nbsp; &lt;/head&gt;
+    <br>
+    &nbsp;&nbsp; &lt;body&gt;
+    <br>
+  </span>
+    &nbsp;&nbsp;&nbsp;&nbsp; &lt;a-scene&gt;
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; &lt;/a-scene&gt;
+  <span style="color: #0000ff">
+    <br>
+    &nbsp;&nbsp; &lt;/body&gt;
+    <br>
+    &lt;/html&gt;
+  </span>
+</div>
+
+<div class="hinweis">Hinweis: In seltenen Fällen kann es auch sogenannte "leere" Tags geben. Diese haben den "/", der das Schließen andeutet, am Ende ihres öffnenden Tags stehen.
+  Das sieht dann z.b so aus <span style="color: #0000ff">&lt;title/&gt;</span>.
+  Allerdings unterstützt A-Frame keine leeren Tags und benötigt deshalb immer eine öffnende und eine schließende Deklaration.</div>
+
+</p>
+<h2>A-Frame Primitive</h2>
+<p>
+
+Wenn man von den Kommentaren absieht, enthält die &lt;a-scene&gt; im Beispiel die geometrischen Primitive &lt;a-box&gt;, &lt;a-sphere&gt;, &lt;a-cylinder&gt;, &lt;a-plane&gt; und &lt;a-sky&gt;.
+
+<div style="border-style: solid;border-width: 1px;">
+  <span style="color: #0000ff">
+    &lt;html&gt;
+    <br>
+    &nbsp;&nbsp; &lt;head&gt;
+    <br>
+    &nbsp;&nbsp; &lt;/head&gt;
+    <br>
+    &nbsp;&nbsp; &lt;body&gt;
+    <br>
+  </span>
+    &nbsp;&nbsp;&nbsp;&nbsp; &lt;a-box&gt;  &lt;/a-box&gt;
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a-box&gt;  &lt;/a-box&gt;
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a-sphere&gt;  &lt;/a-sphere&gt;
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a-cylinder&gt;  &lt;/a-cylinder&gt;
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a-plane&gt;  &lt;/a-plane&gt;
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; &lt;/a-scene&gt;
+  <span style="color: #0000ff">
+    <br>
+    &nbsp;&nbsp; &lt;/body&gt;
+    <br>
+    &lt;/html&gt;
+  </span>
+</div>
+
+Öffne mittels <em>Rechtsklick&gt;"Link in neuem Tab öffnen"</em> oder über mittlere Maustaste <a href="../freiesArbeiten/beispiel_mit_kommentaren">diesen Link</a> in einem neuen Reiter um dir die Datei,
+ die wir gerade in Notepad++ betrachten, im Browser anzeigen zu lassen.
+
+<div class="hinweis">Hinweis: Probier doch mal in der Datei in Notepad++ ein zusätzliches &lt;a-box&gt;&lt;/a-box&gt; innerhalb der &lt;a-scene&gt; einzufügen.
+ Ausprobieren ist ein wichtiger Bestandteil der Informatik.
+</div>
+<div class="hinweis">Hinweis: Denk daran, deine Änderung in Notepad++ zu speichern und lass den Browser die aktuelle Version der Datei mit <em>F5</em> vom Server holen.
+ Falls du die neue Box nicht gleich siehst, lauf ein wenig herum.
+</div>

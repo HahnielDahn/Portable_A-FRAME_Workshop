@@ -1,0 +1,40 @@
+body {
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #ECECEC;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.hinweis{
+	border-width: 6px;
+	border-color: orange;
+	background-color: yellow;
+	border-style: solid;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 5px;
+}
+
+.topmenu{
+	border-width: 2px;
+	border-color: black;
+	border-style: solid;
+	padding: 10px;
+	margin: 5px;
+	border-radius: 5px;
+    text-align: center;
+}
+.topmenu div{
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	vertical-align: top;
+	font-size: 12px;
+}
+
+tr{
+  text-align: left;
+}

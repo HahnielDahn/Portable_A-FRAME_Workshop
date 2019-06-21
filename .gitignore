@@ -1,0 +1,36 @@
+# local instances of nodeJS
+node_modules
+NodeJS_Portable
+views/puzzles/*.ejs
+public/gltf
+
+*.aux
+*.bbl
+*.blg
+*.idx
+*.ilg
+*.ind
+*.loa
+*.lof
+*.log
+*.lot
+*.nlo
+*.nls
+*.out
+#*.pdf
+*.synctex.gz
+*.toc
+*.fls
+*.fdb_latexmk
+# Stylesheets and classes only in meta directory
+*.sty
+*.cls
+*.bst
+*.gin
+# Do not initialize twice
+.prepared
+
+.vscode
+nul
+
+# custom files

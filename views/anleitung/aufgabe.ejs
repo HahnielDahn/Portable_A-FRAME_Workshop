@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Girl's Day Academy - Seite <%= count %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include ../includes/aFrame_Engine.ejs %>
+  </head>
+  <body>
+    <div class="topmenu">
+      <h2> Girl's Day Academy - Seite <%= count %>
+      </h2>
+      <div><a href="aufgabe?a=<%= countminus %>">Vorherige</a>
+      </div>
+      <div><a href="../anleitung">Übersicht</a>
+      </div>
+      <div><a href="aufgabe?a=<%= countplus %>">Nächste</a>
+      </div>
+    </div>
+	<%- include(var_fileshort) %>
+	<%- include(var_file) %>
+    <div class="topmenu">
+      <div><a href="aufgabe?a=<%= countminus %>">Vorherige</a>
+      </div>
+      <div><a href="../anleitung">Übersicht</a>
+      </div>
+      <div><a href="aufgabe?a=<%= countplus %>">Nächste</a>
+      </div>
+    </div>
+  </body>
+</html>

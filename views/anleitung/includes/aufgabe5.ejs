@@ -1,0 +1,76 @@
+
+<div class="hinweis">Bevor du weiter machst, probier dich doch an ein paar der Puzzles:
+  <div>
+    <a href="/puzzle/Positionpuzzle?nummer=1">Schiebe Objekte an die richtige Stelle in Positionpuzzles</a>
+  </div><div>
+    <a href="../Puzzle/Skalierpuzzle?nummer=1">Verzerre Objekte in Skalierpuzzles</a>
+  </div><div>
+    <a href="../Puzzle/Positionpuzzle?nummer=1">Drehe Objekte in Rotierpuzzles</a>
+  </div>
+  Neues Wissen anzuwenden ist sehr wichtig, um ein gutes Verständnis aufzubauen.
+  Das <em>animation</em> Attribut läuft dir nicht weg und wenn du den Umgang mit den bisherigen Attributen gut verinnerlicht hast,
+  wird es dir leichter fallen, die <em>animation</em> zu meistern.
+</div>
+
+<h2>Attribut - Animation</h2>
+<p>
+
+Das <em>animation</em> Attribut animiert Attribute und erlaubt es dir, deren Werte über einen Zeitraum hinweg zu verändern.
+Zum Beispiel könntest du die <em>position</em> einer &lt;a-sphere&gt; animieren und sie von einer Position an eine andere bewegen.
+Oder du könntest die <em>rotation</em> einer &lt;a-box&gt; ändern und sie um die eigene Achse drehen lassen.
+Oder du könntest den <em>radius</em> eines &lt;a-cylinder&gt; ändern und ihn dicker und dünner werden lassen.
+Oder du könntest die <em>scale</em> einer &lt;a-plane&gt; animieren und sie größer und kleiner werden lassen.
+<br>
+Um zu sehen, wie diese Animationen aussehen, folge <a href="../freiesArbeiten/beispiel_animation">diesem Link zum Animations-Beispiel</a>.
+Du findest die zugehörige Quell-Datei unter <em>views / freiesArbeiten / beispiel_animation.ejs</em>.
+<div class="hinweis">Hinweis: Nimm dir die Zeit, um einen Blick sowohl auf die Datei im Browser als auch in Notepad++ zu werfen.
+  Es ist vollkommen normal, wenn du nicht gleich alles verstehst.
+  Im Folgenden wird die Animation näher erklärt und falls dort deine Fragen nicht beantwortet werden, helfen dir die Betreuer gerne weiter.
+</div>
+
+
+</p>
+<h2>Animation am Beispiel <em>position</em></h2>
+<p>
+
+Im <em>animation</em> Attribut der &lt;a-sphere&gt; aus dem obigen Beispiel wird das <em>position</em> Attribut der Kugel animierst und lässt sie nach oben schweben.
+Das <em>animation</em> Attribut ist dabei folgendermasen aufgebaut:
+
+</p><p>
+
+<div  style="border-style: solid;border-width: 1px;">
+  animation=" <span style="color: #008000">&lt;!-- Die öffnenden Anführungszeichen nicht vergessen! --&gt;</span><br>
+  &nbsp;&nbsp; property: position <span style="color: #008000">&lt;!-- Das <em>property</em> beschreibt, welches Attribut animiert werden soll. Hier ist es die <em>position</em> --&gt;</span><br>
+  &nbsp;&nbsp; ;<span style="color: #008000">&lt;!-- Wichtig! Ein Strichpunkt, um die Attribute des <em>animation</em> Attributs voneinander zu trennen --&gt;</span><br>
+  &nbsp;&nbsp; to: 0 5 -5;<span style="color: #008000">&lt;!-- Der Wert, den das animierte Attribut am Ende der Animation haben soll --&gt;</span><br>
+  &nbsp;&nbsp; dur: 5000;<span style="color: #008000">&lt;!-- Der Zeitraum, über den das Attribut animiert wird, in Millisekunden (1000 Millisekunden sind 1 Sekunde) --&gt;</span><br>
+  &nbsp;&nbsp; loop:true;<span style="color: #008000">&lt;!-- Wie oft das Animieren des Attributs wiederholt werden soll, bei <em>true</em> unendlich oft --&gt;</span><br>
+  " <span style="color: #008000">&lt;!-- Die schließenden Anführungszeichen nicht vergessen! --&gt;</span>
+</div>
+
+<div class="hinweis">Hinweis: Du kannst es auch wie in der Beispieldatei in eine Zeile schreiben:
+  <div  style="border-style: solid;border-width: 1px;">
+    animation="property: position; to: 0 5 -5; dur: 5000; loop:true;"
+  </div>
+</div>
+
+<div class="hinweis"> Hinweis:
+  Wenn du dir die Animation der Kugel im <a href="../freiesArbeiten/beispiel_animation">Animation-Beispiel</a> ansiehst,
+   wird dir auffallen, dass die Kugel nach oben schwebt und dann sofort wieder an ihrer Ausgangsposition erscheint.
+  Das liegt daran, dass die Animation auf "endloses Wiederholen" steht und dabei immer wieder von Anfang an abgespielt wird.
+  Wenn man sich davon ein, zwei Durchläufe anschaut, bekommt man geradezu Kopfschmerzen.
+  Du solltest das ändern und die Kugel immer wieder zur Ausgangsposition zurückschweben lassen.
+  Das erreichst du, indem du das <em>animation</em> Attribut um das Attribut <em>dir</em> (Kurzform für eng. <em>direction</em>, zu Deutsch "Richtung") erweiterst
+   und ihm den Wert <em>alternate</em> (eng. für "abwechseln") zuweist.
+  <div  style="border-style: solid;border-width: 1px;">
+    animation="property: position; to: 0 5 -5; dur: 5000; loop: true; <span style="color: #0000ff">dir: alternate;</span>"
+  </div>
+  Jetzt wird die Animation der Kugel abwechselnd vorwärts und rückwärts abgespielt und die Kugel steigt abwechselnd auf und ab.
+</div>
+
+<div class="hinweis">Hinweis: Denk daran, deine Änderung in Notepad++ zu speichern und lass den Browser die aktuelle Version der Datei mit <em>F5</em> vom Server holen.
+</div>
+
+<div class="hinweis">Hinweis: Die <em>animation</em> ist ein viel zu breites Thema, um es in allen Feinheiten zu besprechen und würde den Rahmen des Kurses sprengen.
+  Wenn du mehr über <em>animation</em> erfahren willst, probier dich an den <a href="../Puzzle/Animierpuzzle?nummer=1">Animierpuzzles</a> oder sieh dir die Beispiel A-Frames in <em>views / freiesArbeiten</em> an.
+</div>

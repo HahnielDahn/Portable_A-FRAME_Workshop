@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- Dies ist ein Kommentar -->
+<!-- In HTML beginnen Kommentare mit <!-- und enden mit -->
+<!-- Alles was zwischen diesen Zeichenfolgen steht wird nicht im Browser angezeigt -->
+<!-- Das Auskommentieren 
+	geht auch über
+	mehrere 
+	Zeilen hinweg
+	-->
+<html>
+  <head>
+    <title>Beispiel-Ententeich</title>
+    <!-- Die folgende Zeile sorgt dafür, dass der Inhalt der Datei "aFrame_Engine.ejs"
+		aus dem Ordner "includes" in dieser Webseite an dieser Stelle eingefügt wird.
+		Diese Datei ist dafür zuständig, dass aFrame in unserer Webseite funktioniert
+		-->
+    <meta charset="utf-8">
+    <script src="../javascripts/aframe-master.min.js"></script>
+  </head>
+  <body>
+    <!-- Ab hier wird die Szene beschrieben, die wir im Beispiel gesehen haben -->
+    <a-scene raycaster="far: 100; objects: [link];" cursor="rayOrigin: mouse" camera-position>
+	  <a-assets>
+		<img id="homeThumbnail" src="../images/bspFloatComments.png">
+	  </a-assets>
+		<!-- Licht -->
+	    <a-entity id="lightSphere" geometry="primitive: sphere; radius: .55" material="shader: flat"
+		light="type: point; color: 200 200 200; castShadow:true" position="1 1 -5"
+		  animation="property:position;fill:forwards;to:1 3 -5;dur:5000;loop:true;dir:alternate; easing:easeInOutQuad">
+	    </a-entity>
+		<!-- Text -->
+		<a-entity geometry="primitive: plane; width: auto; height: auto" material="color: #333"
+	    text='color: white; align: left; 
+		  value: So in der Art koennte die Szene aussehen, die wir gemeinsam im Workshop erstellen.;
+		  width: 1.5' position="1.5 2 -2" rotation="0 -45 0"></a-entity>
+		<!-- Stein mit Stein und Scheinwerfer -->
+		<a-entity position="-3 -.25 -5">
+			<a-entity scale="1 2 1" shadow="cast: true"><a-tetrahedron color="#AAAAAA"
+				radius="1" rotation="145 0 140">
+				<a-box color="#FFFFFF" ></a-box></a-tetrahedron></a-entity>
+			<a-box position="0 3 0" rotation="45 0 45" color="#000" shadow="cast: false"
+			  animation=" property: rotation; dur:10000; fill:forwards; to:405 360 405; loop:true; easing:linear"
+			  light="type: spot; color: #33C; groundColor: #3C3; intensity: 1; castShadow:true"></a-box></a-entity>
+		<!-- Baum -->
+		<a-cone color="brown" radius-bottom="1.5" radius-top="1" height="8" position="0 2.5 -10" shadow="cast: true">
+		  <a-cone color="brown" radius-bottom=".2" radius-top=".1" height="3" position="1.5 1 0" rotation="0 0 -45">
+		    <a-sphere color="#0F5" radius=".5" position="0 2 0"></a-sphere>
+		    <a-cone color="brown" radius-bottom=".08" radius-top=".05" height=".5" position="-.25 1 0" rotation="0 0 45"></a-cone>
+		  </a-cone>
+		  <a-cone color="brown" radius-bottom=".2" radius-top=".1" height="3" position="-1.5 2 0" rotation="0 0 45">
+		    <a-sphere color="#0F5" radius=".3" position="0 1.5 0"></a-sphere>
+		  </a-cone>
+		</a-cone>
+		<a-sphere color="#0F5" radius="7" position="0 10 -10" scale="1 .5 1"></a-sphere>
+		<!-- Wasser und Ente -->
+		<a-plane height="20" width="20" shadow="receive: true"
+			position="0 -1 -5" rotation="-90 0 0" color="#0000AA" scale="1 1 1" 
+			animation="property:rotation; dur:10000; fill:forwards; to:-90 360 0; loop:true; easing: linear">
+			<a-entity gltf-model="url(../gltf/Duck/glTF/duck.gltf)"
+				position="-1 0 0" shadow="cast: true"
+				rotation="0 -90 -90"
+				scale=".5 .5 .5"></a-entity></a-plane>
+		<!-- Gras -->
+		<a-ring position="2 -0.9 -5" color="#00AA00" radius-inner="3" radius-outer="30"
+			rotation="-90 0 0" scale="1.5 1 1" shadow="receive: true"></a-ring>
+		<!-- Ausgang -->
+		<a-link href="../aframe/bspFloatComments" title="Zum Rundgang" image="#homeThumbnail" position="3 2 -7" rotation="0 -25 0"></a-link>
+	  <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+  </body>
+</html>

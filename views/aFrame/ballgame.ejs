@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <% include ../includes/aFrame_Engine.ejs %>
+    <script>
+		AFRAME.registerComponent('catch-me', {
+		init: function () {
+			var el = this.el;  // <a-box>
+			el.addEventListener('mouseenter', function () {
+				el.setAttribute('position', {x: Math.random()*10-5, y: Math.random()*5-0.5, z: Math.random()*10-5});
+				var text = document.getElementById("text");
+				var content = text.getAttribute('text').value.split(":");
+				content[1] = (parseInt(content[1].trim(),10) + 1).toString();
+				text.setAttribute('text', 'value', content[0]+": "+content[1]);
+				el.setAttribute('material', 'color', getRandomColor());
+			});
+		} 
+		});
+
+		function getRandomColor() {
+			const letters = '0123456789ABCDEF';
+			var color = '#';
+			for (var i = 0; i < 6; i++ ) {
+				color += letters[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		}
+    </script>
+  </head>
+  <body>
+    <a-scene>
+	  <a-assets>
+		<img id="sky" src="../images/Equirectangular_projection_SW.jpg">
+	  </a-assets>
+	  <a-sphere position="2 3 -5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="-2 3 -5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="2 -1 -5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="-2 -1 -5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="2.5 1 -5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="-2.5 1 -5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="0 3.5 -5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="0 -1.5 -5" radius="0.25" color="red" catch-me></a-sphere>
+	  
+	  <a-sphere position="2 3 5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="-2 3 5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="2 -1 5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="-2 -1 5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="2.5 1 5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="-2.5 1 5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="0 3.5 5" radius="0.25" color="red" catch-me></a-sphere>
+	  <a-sphere position="0 -1.5 5" radius="0.25" color="red" catch-me></a-sphere>
+	  
+	  <a-camera position="0 2 0" look-controls>
+		<a-entity id="text" 
+			text="value: Score: 0; color: black; width: 0.2; lineheight: 1000; opacity:0.6" 
+			position="0.085 0.02 -0.2"></a-entity>
+		<a-entity cursor="fuse: false; fuseTimeout: 500"
+			position="0 0 -0.2"
+			geometry="primitive: ring; radiusInner: 0.0000001; radiusOuter: 0.0015"
+			material="color: black; shader: flat">
+		</a-entity>
+	  </a-camera>
+	  <a-sky src=#sky></a-sky>
+    </a-scene>
+  </body>
+  <script>
+  </script>
+</html>

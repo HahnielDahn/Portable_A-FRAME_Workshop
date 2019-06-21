@@ -1,0 +1,1 @@
+Um den Workshop portable zu machen, muss in dieses Verzeichnis die A-FRAME Library abgelegt werden.

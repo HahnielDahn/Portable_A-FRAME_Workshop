@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Diese Datei stellt den Hintergrund der Puzzle-Szene dar und sollte nicht verändert werden. -->
+<html>
+  <head>
+    <title>Girl's Day Academy - <%= puzzlename %> Nummer <%= nummer %></title>
+    <% include ../includes/aFrame_Engine.ejs %>
+  </head>
+  <body>
+  <a-scene raycaster="far: 100; objects: [link];" cursor="rayOrigin: mouse" camera-position>
+    <a-assets>
+      <img id="aframe" src="../images/aframe360.png">
+    </a-assets>
+    <a-entity position="-3 0 -6">
+      <%- include(var_fileWork) %>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="6" height="6" color="#7BC8A4" shadow="receive: true"></a-plane>
+      <a-entity geometry="primitive: plane; width: 2; height: auto" material="color: #333"
+        text='color: white; align: center; value: Dein Bearbeitungsstand; width: 1.5'
+        position="1 -0.05 3.05" rotation="-45 0 0" scale="2 2 2"></a-entity>
+      <a-entity geometry="primitive: plane; width: 2; height: 0.075" material="color: #777"
+        text='color: white; wrapCount:60; align: center; value: ./views/puzzles/<%= var_fileWork %>;'
+        position="1 -0.15 3.15" rotation="-45 0 0" scale="2 2 2"></a-entity>
+    </a-entity>
+    <a-box position="0 5.8 -5.95" rotation="0 0 0" width="0.05" height="12" depth="6.3" color="#0000FF"
+      opacity="0.5"></a-box>
+    <a-entity position="3 0 -6">
+      <%- include(var_fileSolution) %>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="6" height="6" color="#7BC8A4" shadow="receive: true"></a-plane>
+      <a-entity geometry="primitive: plane; width: 2; height: auto" material="color: #333"
+        text='color: white; align: center; value: Der Sollzustand; width: 1.5'
+        position="-1 -0.05 3.05" rotation="-45 0 0" scale="2 2 2"></a-entity>
+      <a-entity geometry="primitive: plane; width: 2; height: 0.075" material="color: #777"
+        text='color: white; wrapCount:60; align: center; value: ./views/puzzles/<%=var_fileSolution %>;'
+        position="-1 -0.15 3.15" rotation="-45 0 0" scale="2 2 2"></a-entity>
+    </a-entity>
+    
+    <a-entity position="-4 1.7 0" rotation="0 -90 0">
+      <a-link href="<%= puzzlename %>?nummer=<%= nummerminus %>" title="Vorheriges Puzzle" image="#aframe"></a-link>
+    </a-entity>
+    
+    <a-entity position="4 1.7 0" rotation="0 90 0">
+      <a-link href="<%= puzzlename %>?nummer=<%= nummerplus %>" title="Naechstes Puzzle" image="#aframe"></a-link>
+    </a-entity>
+    
+    <a-entity position="0 1.7 4" rotation="0 180 0">
+      <a-link href="../anleitung" title="Menu" image="#aframe"></a-link>
+    </a-entity>
+    
+    <a-sky color="#ECECEC"></a-sky>
+  </a-scene>
+  </body>
+</html>
